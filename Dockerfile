@@ -1,6 +1,8 @@
 FROM debian:stretch
+WORKDIR /app
 RUN apt update && apt install python-pip python-numpy openssh-server -y && rm -rf /var/lib/apt
-RUN pip install flask
-COPY app.py /app.py
+COPY requirements.txt requirements.txt 
+RUN pip install -r requirements.txt
+COPY src/main/ /app/
 EXPOSE 5000 22
-ENTRYPOINT ["python", "./app.py"]
+ENTRYPOINT ["python", "app.py"]
