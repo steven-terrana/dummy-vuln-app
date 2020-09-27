@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "dummy-vuln-app.fullname" . }}-test-connection"
+  labels:
+{{ include "dummy-vuln-app.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "dummy-vuln-app.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
