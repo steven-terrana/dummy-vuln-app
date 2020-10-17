@@ -1,7 +1,7 @@
 namespace: demo
 replicaCount: 1
 image_shas:
-  dummy_vuln_app: a0aa7e2633b664a523239986e19ff904f3625556
+  dummy_vuln_app: 851ad41e32ca3ac9baea84b4d3fa2f820607d9ba
 image:
   repository: docker.pkg.github.com/steven-terrana/dummy-vuln-app/dummy-vuln-app
   tag: 1775a6be00c31932df8ceed66d116ee89b17d165
