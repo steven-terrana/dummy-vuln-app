@@ -4,5 +4,6 @@ RUN apt update && apt install python-pip python-numpy openssh-server -y && rm -r
 COPY requirements.txt requirements.txt 
 RUN pip install -r requirements.txt
 COPY src/ /app/
+COPY static /static
 EXPOSE 5000 22
 ENTRYPOINT ["python", "app.py"]
